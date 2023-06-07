@@ -1,0 +1,77 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'ru.pchunin.deliveryapp'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "ru.pchunin.deliveryapp"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "0.1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_compiler_version
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    // Core KTX Module
+    implementation "androidx.core:core-ktx:$core_version"
+
+    // Lifecycle KTX Module
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
+    // Jetpack Compose
+    implementation "androidx.activity:activity-compose:$activity_compose_version"
+    implementation platform("androidx.compose:compose-bom:$compose_version")
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+
+    // Junit Test tools
+    testImplementation "junit:junit:$test_junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
+
+    // Espresso tools
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+
+    // Compose Test Tools
+    androidTestImplementation platform("androidx.compose:compose-bom:$compose_version")
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+}

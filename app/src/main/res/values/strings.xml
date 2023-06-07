@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Delivery App</string>
+    <string name="nav_button_home">Главная</string>
+    <string name="nav_button_search">Поиск</string>
+    <string name="nav_button_cart">Корзина</string>
+    <string name="nav_button_profile">Аккаунт</string>
+    <string name="add_cart_button">Добавить в корзину</string>
+    <string name="pay_button">Оплатить %s</string>
+</resources>
